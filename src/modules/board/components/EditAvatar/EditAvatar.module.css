@@ -1,0 +1,32 @@
+.avatar {
+  position: relative;
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #3f51b5;
+}
+
+.overlay:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.4;
+  background: #3f51b5;
+}
