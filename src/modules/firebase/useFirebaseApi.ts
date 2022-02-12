@@ -17,6 +17,7 @@ export function useFirebaseApi(): IFirebaseApi {
   const refToPoints = ref(realtimeDatabase, userName + '/points');
 
   const [pointGroupsSnapshots, loading, error] = useList(refToPointGroups);
+  error && console.error(error);
   const [pointsSnapshots] = useObject(refToPoints);
   const pointsList = pointsSnapshots?.val() || {};
   const pointGroups = (pointGroupsSnapshots?.map((item) => {
