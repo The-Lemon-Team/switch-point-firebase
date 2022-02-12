@@ -11,17 +11,17 @@ export const App = () => {
     <Router>
       <FirebaseProvider>
         <Routes>
-          <Route path="/auth" element={<AuthScreenContainer />} />
-          <Route
-            path="/board"
+        <Route
+            path="/"
             element={
               <PrivateRoute>
                 <BoardContainer />
               </PrivateRoute>
             }
           />
+          <Route path="/auth" element={<AuthScreenContainer />} />
           <Route
-            path="/"
+            path="/board"
             element={
               <PrivateRoute>
                 <BoardContainer />
