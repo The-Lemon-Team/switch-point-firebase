@@ -20,6 +20,14 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <BoardContainer />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </FirebaseProvider>
     </Router>
