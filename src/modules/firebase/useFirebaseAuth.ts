@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 import { firebaseAuth } from './firebase';
@@ -8,6 +8,10 @@ export function useFirebaseAuth() {
   const userData = useMemo(() => user?.providerData[0], [user]);
   const [signInWithGoogle] = useSignInWithGoogle(firebaseAuth);
 
+  const callback = useCallback(() => {
+    signInWithGoogle().then(console.log).then(console.error);
+  }, [signInWithGoogle]);
+
   error && console.error(error);
 
   return {
@@ -15,6 +19,6 @@ export function useFirebaseAuth() {
     loading,
     error,
     userData,
-    signInWithGoogle,
+    signInWithGoogle: callback,
   };
 }
